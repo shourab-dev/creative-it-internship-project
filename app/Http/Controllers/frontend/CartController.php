@@ -10,14 +10,15 @@ use App\Models\User;
 use Stripe\Customer;
 use App\Models\Cupon;
 use App\Models\Order;
+use App\Models\PickUp;
 use App\Models\Product;
+use App\Models\OrderItems;
 use App\Models\ProductPrice;
 use Illuminate\Http\Request;
 use App\Models\DiscountPrice;
 use App\Models\ProductWishlist;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
-use App\Models\OrderItems;
-use App\Models\PickUp;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -343,7 +344,7 @@ class CartController extends Controller
 
     function confirmOrder(Request $request)
     {
-        // dd($request->all());
+
 
         if ($request->payment_option == 'bkash' || $request->payment_option == 'nagad') {
             if (empty($request->transaction_id[$request->payment_option])) {
@@ -409,6 +410,21 @@ class CartController extends Controller
 
 
 
-        dd('success');
+        return redirect()->route('order.success', ['order' => $order->id]);
+    }
+
+    function successOrder(Request $request)
+    {
+        return view('frontend.payment-gateway.success');
+        // dd($request->all());
+    }
+    function downloadInvoice($orderId)
+    {
+        $order = Order::with('orderItems')->first();
+        $data = ["order"=> $order];
+        
+        $pdf = Pdf::loadView('frontend.payment-gateway.Invoice', $data);
+        return $pdf->download($order->name.'-order-invoice-'.$order->created_at->format('d-m-y').'.pdf');
+        
     }
 }

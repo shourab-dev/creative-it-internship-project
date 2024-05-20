@@ -213,6 +213,8 @@ Route::controller(CartController::class)->group(function () {
     // checkout
     // Route::post('/checkout', 'checkout')->name('checkout')->middleware(['auth']);
     Route::get('/checkout', 'checkout')->name('checkout')->middleware(['auth']);
+    Route::get('/order-success', 'successOrder')->name('order.success')->middleware(['auth']);
+    Route::get('/download-invoice/{orderId}', 'downloadInvoice')->name('invoice.download')->middleware(['auth']);
 
     //* PLACE ORDER
     Route::post('/place-order', 'confirmOrder')->name('confirm.order')->middleware('auth');
