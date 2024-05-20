@@ -106,12 +106,14 @@
                                     @foreach ($cartItems as $item)
                                     <tr>
                                         <td class="check-cart-img">
-                                            <a href="shop-list.html"><img src="{{ $item->product->image_url }}" alt="#"
-                                                    width="80"></a>
-                                            <h6><a href="shop-list.html" class="text-heading">{{ $item->product->title
+                                            <a
+                                                href="{{ route('product.details.create', $item->product->slug_unique) }}"><img
+                                                    src="{{ $item->product->image_url }}" alt="#" width="80"></a>
+                                            <h6><a href="{{ route('product.details.create', $item->product->slug_unique) }}"
+                                                    class="text-heading">{{ $item->product->title
                                                     }}
                                                     <span>(x
-                                                        10)</span></a></h6>
+                                                        {{ $item->product_qty }})</span></a></h6>
                                         </td>
                                         <td>
                                             <h4 class="text-brand">${{ $item->price }}</h4>
@@ -129,6 +131,35 @@
                             <input type="hidden" name="total_ammount" value="{{ $price->discount_price }}">
                             <input type="hidden" name="total_qty" value="{{ $cartItems->sum('product_qty') }}">
                             <h3>Total <span>${{ $price->discount_price }}</span></h3>
+                        </div>
+                    </div>
+                    <div class="shipping">
+                        <h4 class="mb-20">Shipping</h4>
+                        <div class="shipping_option payment_option">
+                            <div class="custome-radio">
+                                <input class="form-check-input" type="radio" name="shipping" checked="" value="home"
+                                    id="home">
+                                <label class="form-check-label" for="home">Home Delivery</label>
+                            </div>
+                        
+                            <div class="custome-radio">
+                                <input class="form-check-input" type="radio" name="shipping" value="pickup"
+                                    id="pickup">
+                                <label class="form-check-label" for="pickup">Pick Up Point</label>
+                            </div>
+                            <div class="pickupData ps-4" style="display:none">
+                                
+                                <div class="bg-white py-3 px-2">
+                                    @foreach ($points as $point)
+                                    <div class="custome-radio ">
+                                        <input class="form-check-input" type="radio" name="pick_point" value="{{ $point->point_name }}" id="pickPoints{{ $point->id }}">
+                                        <label class="form-check-label" for="pickPoints{{ $point->id }}">{{ $point->point_name }}</label>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        
+
                         </div>
                     </div>
                     <div class="payment">
@@ -208,6 +239,16 @@
             $(`.bkashData`).fadeOut()
             $(`.nagadData`).fadeOut()
 
+        }
+    })
+
+
+    $('input[name="shipping"]').change(function(){
+        const value = $(this).val()
+        if(value  ===  'pickup'){
+            $('.pickupData').fadeIn()
+        } else{
+            $('.pickupData').hide()
         }
     })
 

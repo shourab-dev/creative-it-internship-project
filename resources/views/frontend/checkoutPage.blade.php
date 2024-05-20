@@ -201,7 +201,7 @@
                                     <tr>
                                         <td class="check-cart-img">
                                             <a href="shop-list.html"><img src="{{ asset('frontend/assets/img/shop/cart-img-03.jpg') }}" alt="#"></a>
-                                            <h6 ><a href="shop-list.html" class="text-heading">Antiseptic Spray <span>(x 10)</span></a></h6>
+                                            <h6 ><a href="{{ route('product.details.create','hlw') }}" class="text-heading">Antiseptic Spray <span>(x 10)</span></a></h6>
                                         </td>
                                         <td>
                                             <h4 class="text-brand">$32.00</h4>

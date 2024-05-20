@@ -17,6 +17,7 @@ use App\Models\DiscountPrice;
 use App\Models\ProductWishlist;
 use App\Http\Controllers\Controller;
 use App\Models\OrderItems;
+use App\Models\PickUp;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -334,12 +335,15 @@ class CartController extends Controller
         $cartItems = Cart::with('product', 'productPrice')
             ->where('user_id', Auth::user()->id)
             ->get();
-        return view('frontend.payment-gateway.index', compact('price', 'cartItems'));
+
+        $points = PickUp::latest()->get();
+
+        return view('frontend.payment-gateway.index', compact('price', 'cartItems', 'points'));
     }
 
     function confirmOrder(Request $request)
     {
-        // dd($carts = Cart::where('user_id', auth()->id())->with('product:id,purchase_price')->get());
+        // dd($request->all());
 
         if ($request->payment_option == 'bkash' || $request->payment_option == 'nagad') {
             if (empty($request->transaction_id[$request->payment_option])) {
@@ -367,6 +371,8 @@ class CartController extends Controller
         $order->name = $request->fname;
         $order->email = $request->email;
         $order->country = $request->country;
+        $order->shipping = $request->shipping;
+        $order->point = $request->pick_point;
         $order->address = $request->billing_address;
         $order->city = $request->city;
         $order->zip = $request->zipcode;
@@ -396,6 +402,8 @@ class CartController extends Controller
                 $orderItem->total_price =  $cart->price;
                 $orderItem->qty =  $cart->product_qty;
                 $orderItem->save();
+
+                $cart->delete();
             }
         }
 

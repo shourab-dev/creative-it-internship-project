@@ -14,6 +14,7 @@ use App\Http\Controllers\frontend\HomePageController;
 use App\Http\Controllers\backend\RecycleBinController;
 use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\backend\AdminProfileController;
+use App\Http\Controllers\backend\DeliveryController;
 use App\Http\Controllers\frontend\ProductsListsController;
 use Illuminate\Support\Facades\Artisan;
 
@@ -91,6 +92,13 @@ Route::group(['middleware' => ['auth', 'role:admin|manager|editor|seller']], fun
         Route::get('/edit/all/cupon/{id}', 'editAllCupon')->name('edit.all.cupon');
         Route::post('/update/all/cupon/{id}', 'updateAllCupon')->name('store.update.cupon');
         Route::post('/delete/all/cupon/{id}', 'deleteAllCupon')->name('delete.all.cupon');
+    });
+
+    Route::controller(DeliveryController::class)->prefix('/pick-up')->name('pickup.')->group(function () {
+        Route::get('/', 'showPickupPoints')->name('all');
+        Route::get('/add', 'addPoints')->name('add');
+        Route::post('/store', 'storePoint')->name('store');
+        Route::get('/remove/{id}', 'deletePoint')->name('delete');
     });
 });
 

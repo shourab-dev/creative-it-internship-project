@@ -21,10 +21,12 @@ return new class extends Migration
             $table->string('payment_phone')->nullable();
             $table->string('name');
             $table->string('email');
-            $table->string('address');
-            $table->string('country');
-            $table->string('city');
+            $table->string('address')->nullable();
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
             $table->string('zip')->nullable();
+            $table->string('shipping')->default('home');
+            $table->string('point')->nullable();
             $table->string('phone');
             $table->string('note')->nullable();
             $table->float('total_price');

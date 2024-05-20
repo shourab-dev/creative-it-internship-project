@@ -55,6 +55,18 @@
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
+                <div class="menu-title">Pickup Points</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('pickup.all') }}"><i class="bx bx-right-arrow-alt"></i>Show all Points</a>
+                </li>
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
                 <div class="menu-title">Recycle Bin</div>
             </a>
             <ul>

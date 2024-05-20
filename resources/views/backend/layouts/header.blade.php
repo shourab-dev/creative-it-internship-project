@@ -1,7 +1,7 @@
 {{-- header start --}}
 @php
-    $id = Auth::user()->id;
-    $user = App\Models\User::find($id);
+$id = Auth::user()->id;
+$user = App\Models\User::find($id);
 @endphp
 <header>
     <div class="topbar d-flex align-items-center">
@@ -10,19 +10,21 @@
             </div>
             {{-- <div class="search-bar flex-grow-1">
                 <div class="position-relative col-sm-12 search-bar-box">
-                  
-                        <input type="search" name="search" id="search" class="form-control search-control" placeholder="Type to search..."> <span
+
+                    <input type="search" name="search" id="search" class="form-control search-control"
+                        placeholder="Type to search..."> <span
                         class="position-absolute top-50 search-show translate-middle-y"><i
                             class='bx bx-search'></i></span>
                     <div id="productList" class="position-absolute col-sm-12 searchData">
-                        <ul  class="position-absolute col-sm-12 searchData" style="z-index: 1">
+                        <ul class="position-absolute col-sm-12 searchData" style="z-index: 1">
                         </ul>
                     </div>
 
                 </div>
             </div> --}}
             <span>
-                <a class="btn btn-sm btn-outline-primary" target="_blank" href="{{ route('home.create') }}">View Website</a>
+                <a class="btn btn-sm btn-outline-primary" target="_blank" href="{{ route('home.create') }}">View
+                    Website</a>
             </span>
             <div class="top-menu ms-auto">
                 <ul class="navbar-nav align-items-center">
@@ -93,8 +95,8 @@
                                         <div class="notify bg-light-info text-info"><i class="bx bx-home-circle"></i>
                                         </div>
                                         <div class="flex-grow-1">
-                                            <h6 class="msg-name">New Product Approved <span
-                                                    class="msg-time float-end">2 hrs ago</span></h6>
+                                            <h6 class="msg-name">New Product Approved <span class="msg-time float-end">2
+                                                    hrs ago</span></h6>
                                             <p class="msg-info">Your new product has approved</p>
                                         </div>
                                     </div>
@@ -117,8 +119,8 @@
                                                 class='bx bx-check-square'></i>
                                         </div>
                                         <div class="flex-grow-1">
-                                            <h6 class="msg-name">Your item is shipped <span
-                                                    class="msg-time float-end">5 hrs
+                                            <h6 class="msg-name">Your item is shipped <span class="msg-time float-end">5
+                                                    hrs
                                                     ago</span></h6>
                                             <p class="msg-info">Successfully shipped your item</p>
                                         </div>
@@ -126,8 +128,7 @@
                                 </a>
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
-                                        <div class="notify bg-light-primary text-primary"><i
-                                                class='bx bx-user-pin'></i>
+                                        <div class="notify bg-light-primary text-primary"><i class='bx bx-user-pin'></i>
                                         </div>
                                         <div class="flex-grow-1">
                                             <h6 class="msg-name">New 24 authors<span class="msg-time float-end">1 day
@@ -172,8 +173,8 @@
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
-                                            <img src="assets/images/avatars/avatar-1.png" class="msg-avatar"
-                                                alt="user avatar">
+                                            <img src="{{ asset('backend/assets/images/avatars/avatar-1.png') }}"
+                                                class="msg-avatar" alt="user avatar">
                                         </div>
                                         <div class="flex-grow-1">
                                             <h6 class="msg-name">Daisy Anderson <span class="msg-time float-end">5 sec
@@ -185,8 +186,8 @@
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
-                                            <img src="assets/images/avatars/avatar-2.png" class="msg-avatar"
-                                                alt="user avatar">
+                                            <img src="{{ asset('backend/assets/images/avatars/avatar-2.png') }}"
+                                                class="msg-avatar" alt="user avatar">
                                         </div>
                                         <div class="flex-grow-1">
                                             <h6 class="msg-name">Althea Cabardo <span class="msg-time float-end">14
@@ -198,8 +199,8 @@
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
-                                            <img src="assets/images/avatars/avatar-3.png" class="msg-avatar"
-                                                alt="user avatar">
+                                            <img src="{{ asset('backend/assets/images/avatars/avatar-3.png') }}"
+                                                class="msg-avatar" alt="user avatar">
                                         </div>
                                         <div class="flex-grow-1">
                                             <h6 class="msg-name">Oscar Garner <span class="msg-time float-end">8 min
@@ -211,8 +212,8 @@
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
-                                            <img src="assets/images/avatars/avatar-4.png" class="msg-avatar"
-                                                alt="user avatar">
+                                            <img src="{{ asset('backend/assets/images/avatars/avatar-4.png') }}"
+                                                class="msg-avatar" alt="user avatar">
                                         </div>
                                         <div class="flex-grow-1">
                                             <h6 class="msg-name">Katherine Pechon <span class="msg-time float-end">15
@@ -224,8 +225,8 @@
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
-                                            <img src="assets/images/avatars/avatar-5.png" class="msg-avatar"
-                                                alt="user avatar">
+                                            <img src="{{ asset('backend/assets/images/avatars/avatar-5.png') }}"
+                                                class="msg-avatar" alt="user avatar">
                                         </div>
                                         <div class="flex-grow-1">
                                             <h6 class="msg-name">Amelia Doe <span class="msg-time float-end">22 min
@@ -237,8 +238,8 @@
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
-                                            <img src="assets/images/avatars/avatar-6.png" class="msg-avatar"
-                                                alt="user avatar">
+                                            <img src="{{ asset('backend/assets/images/avatars/avatar-6.png') }}"
+                                                class="msg-avatar" alt="user avatar">
                                         </div>
                                         <div class="flex-grow-1">
                                             <h6 class="msg-name">Cristina Jhons <span class="msg-time float-end">2 hrs
@@ -250,8 +251,8 @@
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
-                                            <img src="assets/images/avatars/avatar-7.png" class="msg-avatar"
-                                                alt="user avatar">
+                                            <img src="{{ asset('backend/assets/images/avatars/avatar-7.png') }}"
+                                                class="msg-avatar" alt="user avatar">
                                         </div>
                                         <div class="flex-grow-1">
                                             <h6 class="msg-name">James Caviness <span class="msg-time float-end">4 hrs
@@ -263,8 +264,8 @@
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
-                                            <img src="assets/images/avatars/avatar-8.png" class="msg-avatar"
-                                                alt="user avatar">
+                                            <img src="{{ asset('backend/assets/images/avatars/avatar-8.png') }}"
+                                                class="msg-avatar" alt="user avatar">
                                         </div>
                                         <div class="flex-grow-1">
                                             <h6 class="msg-name">Peter Costanzo <span class="msg-time float-end">6 hrs
@@ -276,8 +277,8 @@
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
-                                            <img src="assets/images/avatars/avatar-9.png" class="msg-avatar"
-                                                alt="user avatar">
+                                            <img src="{{ asset('backend/assets/images/avatars/avatar-9.png') }}"
+                                                class="msg-avatar" alt="user avatar">
                                         </div>
                                         <div class="flex-grow-1">
                                             <h6 class="msg-name">David Buckley <span class="msg-time float-end">2 hrs
@@ -289,8 +290,8 @@
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
-                                            <img src="assets/images/avatars/avatar-10.png" class="msg-avatar"
-                                                alt="user avatar">
+                                            <img src="{{ asset('backend/assets/images/avatars/avatar-10.png') }}"
+                                                class="msg-avatar" alt="user avatar">
                                         </div>
                                         <div class="flex-grow-1">
                                             <h6 class="msg-name">Thomas Wheeler <span class="msg-time float-end">2
@@ -303,8 +304,8 @@
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
-                                            <img src="assets/images/avatars/avatar-11.png" class="msg-avatar"
-                                                alt="user avatar">
+                                            <img src="{{ asset('backend/assets/images/avatars/avatar-11.png') }}"
+                                                class="msg-avatar" alt="user avatar">
                                         </div>
                                         <div class="flex-grow-1">
                                             <h6 class="msg-name">Johnny Seitz <span class="msg-time float-end">5 days
@@ -343,10 +344,8 @@
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button class="dropdown-item"
-                                onclick="event.preventDefault();
-                        this.closest('form').submit();"><i
-                                    class='bx bx-log-out-circle'></i><span>Logout</span>
+                            <button class="dropdown-item" onclick="event.preventDefault();
+                        this.closest('form').submit();"><i class='bx bx-log-out-circle'></i><span>Logout</span>
                             </button>
                         </form>
                     </li>
@@ -356,4 +355,3 @@
     </div>
 </header>
 {{-- header end --}}
-
